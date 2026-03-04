@@ -63,3 +63,29 @@ h1, h2 {
     padding: 30px;
     border-radius: 10px;
 }
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#2e6f57;
+padding:20px;
+color:white;
+}
+
+.logo h1{
+margin:0;
+}
+
+.cartlink a{
+background:white;
+color:#2e6f57;
+padding:10px 16px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.cartlink a:hover{
+background:#e6e6e6;
+}
+
