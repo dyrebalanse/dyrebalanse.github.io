@@ -1,3 +1,8 @@
+https://dyrebalanse.github.io/butikk.html
+index.html
+butikk.html
+kontakt.html
+style.css
 <!DOCTYPE html>
 <html lang="no">
 <head>
