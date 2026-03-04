@@ -83,8 +83,19 @@ color:white;
 }
 
 .logo h1{
+margin:0;
 text-align:center;
 }
+
+.logo a{
+color:white;
+text-decoration:none;
+}
+
+.logo a:hover{
+opacity:0.85;
+}
+
 
 .cartlink a{
 background:white;
