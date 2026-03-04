@@ -44,6 +44,7 @@ section {
     max-width: 950px;
     margin: 50px auto;
     padding: 0 20px;
+    background:white;
 }
 
 h1, h2 {
@@ -112,7 +113,7 @@ background:#e6e6e6;
 
 nav{
 text-align:center;
-background:#1f4d3a;
+background:#2e6f57;
 padding:12px 0;
 margin-top:10px;
 }
