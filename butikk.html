@@ -2,33 +2,103 @@
 <html lang="no">
 <head>
 <meta charset="UTF-8">
-<title>Dyrebalanse Butikk</title>
+<title>Dyrebalanse Nettbutikk</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f7f5;
+margin:0;
+padding:0;
+}
+
+header{
+background:#2e6f57;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+.produkter{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.produkt{
+background:white;
+border-radius:10px;
+padding:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.produkt img{
+width:100%;
+border-radius:8px;
+}
+
+button{
+background:#2e6f57;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#245844;
+}
+
+</style>
 </head>
 
 <body>
 
-<h1>Dyrebalanse Butikk</h1>
+<header>
+<h1>Dyrebalanse</h1>
+<p>Naturlig støtte for hundens helse</p>
+</header>
+
+<div class="container">
+
+<div class="produkter">
 
 <div class="produkt">
-<h2>Lion's Mane – Naturlig støtte for hund</h2>
+<img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee">
+<h2>Lion's Mane</h2>
 <p>Støtter kognitiv helse og nervesystem.</p>
-<p><b>349 kr</b></p>
+<h3>349 kr</h3>
 <button>Kjøp</button>
 </div>
 
 <div class="produkt">
-<h2>Reishi – Immunstøtte</h2>
+<img src="https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a">
+<h2>Reishi</h2>
 <p>Naturlig støtte for immunforsvar.</p>
-<p><b>329 kr</b></p>
+<h3>329 kr</h3>
 <button>Kjøp</button>
 </div>
 
 <div class="produkt">
-<h2>Omega-3 – Hud og pels</h2>
-<p>Støtter hud, pels og ledd.</p>
-<p><b>279 kr</b></p>
+<img src="https://images.unsplash.com/photo-1589927986089-35812388d1c4">
+<h2>Omega-3</h2>
+<p>For hud, pels og ledd.</p>
+<h3>279 kr</h3>
 <button>Kjøp</button>
+</div>
+
+</div>
+
 </div>
 
 </body>
