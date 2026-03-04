@@ -110,3 +110,22 @@ font-weight:bold;
 background:#e6e6e6;
 }
 
+nav{
+text-align:center;
+background:#2e6f57;
+padding:12px 0;
+}
+
+nav a{
+color:white;
+margin:0 12px;
+text-decoration:none;
+font-weight:500;
+}
+
+nav a:hover{
+opacity:0.8;
+}
+
+
+
