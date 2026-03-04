@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<title>Handlekurv – Dyrebalanse</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+body{
+font-family: Arial;
+background:#f4f7f5;
+margin:0;
+padding:0;
+}
+
+header{
+background:#2e6f57;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.container{
+max-width:800px;
+margin:auto;
+padding:20px;
+}
+
+.cart-item{
+background:white;
+padding:15px;
+margin-bottom:10px;
+border-radius:10px;
+display:flex;
+justify-content:space-between;
+}
+
+.total{
+font-size:20px;
+font-weight:bold;
+margin-top:20px;
+}
+
+button{
+background:#2e6f57;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:6px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Handlekurv</h1>
+</header>
+
+<div class="container">
+
+<div id="cartItems"></div>
+
+<div class="total" id="totalPrice"></div>
+
+<br>
+
+<button onclick="checkout()">Gå til betaling</button>
+
+</div>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function loadCart(){
+
+let cartDiv = document.getElementById("cartItems");
+let total = 0;
+
+cartDiv.innerHTML = "";
+
+cart.forEach(item => {
+
+let div = document.createElement("div");
+div.className = "cart-item";
+
+div.innerHTML =
+"<span>"+item.name+"</span>" +
+"<span>"+item.price+" kr</span>";
+
+cartDiv.appendChild(div);
+
+total += item.price;
+
+});
+
+document.getElementById("totalPrice").innerText =
+"Totalt: " + total + " kr";
+
+}
+
+function checkout(){
+
+alert("Bestilling sendt! (betalingsløsning kobles senere)");
+
+}
+
+loadCart();
+
+</script>
+
+</body>
+</html>
