@@ -13,7 +13,16 @@ header {
     color: white;
     text-align: center;
 }
+header h1{
+margin:0;
+font-size:32px;
+text-align:center;
+}
 
+header p{
+margin-top:5px;
+text-align:center;
+}
 nav a {
     color: white;
     margin-right: 20px;
