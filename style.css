@@ -1,117 +1,100 @@
-body{
-font-family:'Segoe UI',sans-serif;
+*{
+box-sizing:border-box;
 margin:0;
-background:#f4f6f5;
-color:#2c2c2c;
+padding:0;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#f4f7f5;
+color:#333;
 line-height:1.6;
 }
 
 
-
 .topbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#2e6f57;
-padding:20px;
+background:linear-gradient(135deg,#6fcf97,#2f855a);
 color:white;
+padding:30px 20px;
+}
+
+.logo{
+max-width:1200px;
+margin:auto;
 }
 
 .logo h1{
-margin:0;
+font-size:32px;
+margin-bottom:5px;
 }
 
-.logo a{
-color:white;
-text-decoration:none;
+.logo p{
+opacity:0.9;
 }
-
-.logo a:hover{
-opacity:0.85;
-}
-
 
 
 nav{
-background:#2e6f57;
-text-align:center;
-padding:12px 0;
+background:#2f855a;
+display:flex;
+justify-content:center;
+gap:30px;
+padding:15px 10px;
 }
 
 nav a{
 color:white;
-margin:0 12px;
 text-decoration:none;
-font-weight:500;
-transition:0.2s;
+font-weight:600;
+font-size:15px;
 }
 
 nav a:hover{
-opacity:0.7;
+opacity:0.8;
 }
-
-
-
-.hero{
-background:#e9f2ef;
-padding:70px 20px;
-text-align:center;
-}
-
-.hero h2{
-margin-top:0;
-}
-
 
 
 section{
-max-width:950px;
-margin:50px auto;
-padding:40px 30px;
+max-width:900px;
+margin:60px auto;
+padding:40px;
 background:white;
 border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
-}
-
-
-
-.button{
-display:inline-block;
-background:#2e6f57;
-color:white;
-padding:12px 22px;
-border-radius:6px;
-text-decoration:none;
-margin-top:20px;
-transition:0.2s;
-}
-
-.button:hover{
-background:#245844;
-}
-
-
-
-.email-box{
-background:#d8f3dc;
-padding:30px;
-border-radius:10px;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
 text-align:center;
 }
 
-.email-box input{
-padding:10px;
-border-radius:6px;
-border:1px solid #ccc;
-margin-right:10px;
+section h2{
+font-size:26px;
+margin-bottom:20px;
+color:#2f855a;
 }
 
+section p{
+font-size:17px;
+margin-bottom:15px;
+}
+
+
+button{
+background:#2f855a;
+color:white;
+border:none;
+padding:12px 22px;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#276749;
+}
 
 
 .footer{
-background:#1b4332;
+margin-top:80px;
+background:#2f855a;
 color:white;
 text-align:center;
-padding:30px;
-margin-top:60px;
+padding:25px;
+font-size:14px;
 }
