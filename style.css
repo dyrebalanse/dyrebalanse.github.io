@@ -154,3 +154,29 @@ background:#2e6f57;
 .menu a.active{
 background:#2e6f57;
 }
+nav{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:25px;
+margin-top:15px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
+font-size:16px;
+padding:8px 14px;
+border-radius:6px;
+transition:all 0.2s ease;
+}
+
+nav a:hover{
+background:#2e6f57;
+}
+
+nav a:visited{
+color:white;
+background:none;
+}
