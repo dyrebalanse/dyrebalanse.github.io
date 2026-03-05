@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="no">
+
 <head>
 <meta charset="UTF-8">
 <title>Dyrebalanse Nettbutikk</title>
+
 <link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
-</head>
-  
+
 <style>
 
 body{
@@ -55,10 +55,18 @@ border:none;
 padding:10px 20px;
 border-radius:5px;
 cursor:pointer;
+font-size:16px;
 }
 
 button:hover{
 background:#245844;
+}
+
+#cartTotal{
+text-align:center;
+padding:20px;
+font-weight:bold;
+font-size:18px;
 }
 
 </style>
@@ -66,41 +74,34 @@ background:#245844;
 
 <body>
 
-<header class="topbar">
-
-<div class="logo">
+<header>
 <h1>Dyrebalanse</h1>
 <p>Naturlig støtte for hundens helse</p>
-</div>
-  
 </header>
-  
-<div class="cartlink">
-</div>
 
-
-<div id="cartTotal" style="text-align:center;padding:10px;font-weight:bold;">
+<div id="cartTotal">
 Handlekurv: 0 varer | 0 kr
-<br>
-<a href="handlekurv.html">🛒 Handlekurv</a>
+<br><br>
+<a href="handlekurv.html">Gå til handlekurv</a>
 </div>
-  
+
 <div class="container">
 
 <div class="produkter">
 
 <div class="produkt">
 <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee">
-<h2>Lion's Mane</h2>
+<h2>Lions Mane</h2>
 <p>Støtter kognitiv helse og nervesystem.</p>
 <h3>349 kr</h3>
-<button onclick="addToCart('Lion\'s Mane',349)">Kjøp</button>
+<button onclick="addToCart('Lions Mane',349)">Kjøp</button>
 </div>
 
 <div class="produkt">
 <img src="https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a">
 <h2>Reishi</h2>
 <p>Naturlig støtte for immunforsvar.</p>
+<h3>329 kr</h3>
 <button onclick="addToCart('Reishi',329)">Kjøp</button>
 </div>
 
@@ -108,13 +109,30 @@ Handlekurv: 0 varer | 0 kr
 <img src="https://images.unsplash.com/photo-1589927986089-35812388d1c4">
 <h2>Omega-3</h2>
 <p>For hud, pels og ledd.</p>
+<h3>279 kr</h3>
 <button onclick="addToCart('Omega 3',279)">Kjøp</button>
 </div>
 
 </div>
-
 </div>
 
-<script src="script.js"></script>
+<script>
+
+let cart = []
+let total = 0
+
+function addToCart(name,price){
+
+cart.push({name,price})
+
+total += price
+
+document.getElementById("cartTotal").innerHTML =
+"Handlekurv: " + cart.length + " varer | " + total + " kr<br><br><a href='handlekurv.html'>Gå til handlekurv</a>"
+
+}
+
+</script>
+
 </body>
 </html>
