@@ -43,8 +43,9 @@ text-align: center;
 section {
 max-width: 950px;
 margin: 50px auto;
-padding: 0 20px;
+padding: 40px 30px;
 background:white;
+border-radius:8px;
 }
 
 h1, h2 {
