@@ -1,75 +1,54 @@
 <!DOCTYPE html>
 <html lang="no">
+
 <head>
 <meta charset="UTF-8">
-<title>Handlekurv – Dyrebalanse</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Handlekurv | Dyrebalanse</title>
+
 <link rel="stylesheet" href="style.css">
-<style>
 
-body{
-font-family: Arial;
-background:#f4f7f5;
-margin:0;
-padding:0;
-}
-
-header{
-background:#2e6f57;
-color:white;
-padding:20px;
-text-align:center;
-}
-
-.container{
-max-width:800px;
-margin:auto;
-padding:20px;
-}
-
-.cart-item{
-background:white;
-padding:15px;
-margin-bottom:10px;
-border-radius:10px;
-display:flex;
-justify-content:space-between;
-}
-
-.total{
-font-size:20px;
-font-weight:bold;
-margin-top:20px;
-}
-
-button{
-background:#2e6f57;
-color:white;
-border:none;
-padding:10px 15px;
-border-radius:6px;
-cursor:pointer;
-}
-
-</style>
 </head>
 
 <body>
 
-<header>
-<h1>Handlekurv</h1>
+<header class="topbar">
+
+<div class="logo">
+<h1><a href="index.html">Dyrebalanse</a></h1>
+<p>Naturlig støtte for hundens helse</p>
+</div>
+
 </header>
 
-<div class="container">
+<nav>
+<a href="index.html">Hjem</a>
+<a href="immunstotte.html">Immunstøtte</a>
+<a href="ledd.html">Ledd</a>
+<a href="tarm.html">Tarmhelse</a>
+<a href="eldre-dyr.html">Eldre dyr</a>
+<a href="butikk.html">Nettbutikk</a>
+</nav>
+
+<section>
+
+<h2>Din handlekurv</h2>
 
 <div id="cartItems"></div>
 
-<div class="total" id="totalPrice"></div>
+<h3 id="totalPrice">Totalt: 0 kr</h3>
 
 <br>
 
-<button onclick="checkout()">Gå til betaling</button>
+<button onclick="checkout()" class="button">Gå til betaling</button>
 
-</div>
+</section>
+
+<footer class="footer">
+<p>© 2026 Dyrebalanse</p>
+</footer>
+
 
 <script>
 
@@ -82,14 +61,15 @@ let total = 0;
 
 cartDiv.innerHTML = "";
 
-cart.forEach(item => {
+cart.forEach((item,index)=>{
 
 let div = document.createElement("div");
 div.className = "cart-item";
 
 div.innerHTML =
-"<span>"+item.name+"</span>" +
-"<span>"+item.price+" kr</span>";
+"<span>" + item.name + "</span>" +
+"<span>" + item.price + " kr</span>" +
+"<button onclick='removeItem("+index+")'>Fjern</button>";
 
 cartDiv.appendChild(div);
 
@@ -102,9 +82,27 @@ document.getElementById("totalPrice").innerText =
 
 }
 
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+loadCart();
+
+}
+
+
 function checkout(){
 
-alert("Bestilling sendt! (betalingsløsning kobles senere)");
+alert("Bestilling sendt! Betalingsløsning kommer snart.");
+
+localStorage.removeItem("cart");
+
+cart = [];
+
+loadCart();
 
 }
 
