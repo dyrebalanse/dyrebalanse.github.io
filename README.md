@@ -1,4 +1,3 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 diff --git a/README.md b/README.md
 index c71d621d5316b706bbef33db5cd9f8a7e0a2f921..d3c8b7edc0e8ce254ead3258d33ccfcbcb028e35 100644
 --- a/README.md
@@ -70,6 +69,3 @@ index c71d621d5316b706bbef33db5cd9f8a7e0a2f921..d3c8b7edc0e8ce254ead3258d33ccfcb
 -</body>
 -</html>
 +Scriptet pusher `work` til GitHub og forsøker å oppdatere `main` automatisk.
- 
-EOF
-)
