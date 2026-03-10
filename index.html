@@ -1,83 +1,135 @@
-<!DOCTYPE html>
-<html lang="no">
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Dyrebalanse | Naturlig støtte for dyrehelse</title>
-
-<meta name="description" content="Dyrebalanse gir trygg og forskningsbasert informasjon om naturlig støtte for dyrehelse.">
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-<header class="topbar">
-
-<div class="logo">
-<h1><a href="index.html">Dyrebalanse</a></h1>
-<p>Naturlig støtte for hundens helse</p>
-</div>
-
-<nav class="menu">
-<a href="index.html">Hjem</a>
-<a href="immunstotte.html">Immunstøtte</a>
-<a href="ledd.html">Ledd</a>
-<a href="tarm.html">Tarmhelse</a>
-<a href="eldre-dyr.html">Eldre dyr</a>
-<a href="butikk.html">Nettbutikk</a>
-</nav>
-
-</header>
-
-
-<div class="hero">
-
-<h2>Naturlig støtte for dyrehelse</h2>
-
-<p>
-En kunnskapsplattform for dyreeiere som ønsker trygg,
-forskningsbasert informasjon om naturlige tilskudd
-og helhetlig dyrehelse.
-</p>
-
-<a href="immunstotte.html" class="button">
-Utforsk kunnskapsbiblioteket
-</a>
-
-</div>
-
-
-<section>
-
-<div class="email-box">
-
-<h2>Få oppdateringer</h2>
-
-<p>Motta nye artikler og guider om naturlig dyrehelse.</p>
-
-<input type="email" placeholder="Din e-post">
-
-<button class="button">Meld meg på</button>
-
-</div>
-
-</section>
-
-
-<footer class="footer">
-
-<p>© 2026 Dyrebalanse</p>
-
-<p>
-Informasjonen på siden erstatter ikke veterinærbehandling.
-</p>
-
-</footer>
-
-
-</body>
-</html>
+diff --git a/index.html b/index.html
+index 6c42305eb28cb4296c760c6fe09c89fffad22f73..bcb791318d5716a6bc457aaf979f2ef2db8af74f 100644
+--- a/index.html
++++ b/index.html
+@@ -1,83 +1,54 @@
+ <!DOCTYPE html>
+ <html lang="no">
+-
+ <head>
+-<meta charset="UTF-8">
+-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+-
+-<title>Dyrebalanse | Naturlig støtte for dyrehelse</title>
+-
+-<meta name="description" content="Dyrebalanse gir trygg og forskningsbasert informasjon om naturlig støtte for dyrehelse.">
+-
+-<link rel="stylesheet" href="style.css">
+-
++  <meta charset="UTF-8">
++  <meta name="viewport" content="width=device-width, initial-scale=1.0">
++  <title>Dyrebalanse | Naturlig støtte for dyrehelse</title>
++  <meta name="description" content="Dyrebalanse gir trygg og forskningsbasert informasjon om naturlig støtte for dyrehelse.">
++  <link rel="stylesheet" href="style.css">
+ </head>
+-
+ <body>
+-
+-<header class="topbar">
+-
+-<div class="logo">
+-<h1><a href="index.html">Dyrebalanse</a></h1>
+-<p>Naturlig støtte for hundens helse</p>
+-</div>
+-
+-<nav class="menu">
+-<a href="index.html">Hjem</a>
+-<a href="immunstotte.html">Immunstøtte</a>
+-<a href="ledd.html">Ledd</a>
+-<a href="tarm.html">Tarmhelse</a>
+-<a href="eldre-dyr.html">Eldre dyr</a>
+-<a href="butikk.html">Nettbutikk</a>
+-</nav>
+-
+-</header>
+-
+-
+-<div class="hero">
+-
+-<h2>Naturlig støtte for dyrehelse</h2>
+-
+-<p>
+-En kunnskapsplattform for dyreeiere som ønsker trygg,
+-forskningsbasert informasjon om naturlige tilskudd
+-og helhetlig dyrehelse.
+-</p>
+-
+-<a href="immunstotte.html" class="button">
+-Utforsk kunnskapsbiblioteket
+-</a>
+-
+-</div>
+-
+-
+-<section>
+-
+-<div class="email-box">
+-
+-<h2>Få oppdateringer</h2>
+-
+-<p>Motta nye artikler og guider om naturlig dyrehelse.</p>
+-
+-<input type="email" placeholder="Din e-post">
+-
+-<button class="button">Meld meg på</button>
+-
+-</div>
+-
+-</section>
+-
+-
+-<footer class="footer">
+-
+-<p>© 2026 Dyrebalanse</p>
+-
+-<p>
+-Informasjonen på siden erstatter ikke veterinærbehandling.
+-</p>
+-
+-</footer>
+-
+-
++  <header class="topbar">
++    <div class="logo">
++      <h1><a href="index.html">Dyrebalanse</a></h1>
++      <p>Naturlig støtte for hundens helse</p>
++    </div>
++
++    <nav class="menu">
++      <a href="index.html" aria-current="page">Hjem</a>
++      <a href="immunstotte.html">Immunstøtte</a>
++      <a href="ledd.html">Ledd</a>
++      <a href="tarm.html">Tarmhelse</a>
++      <a href="eldre-dyr.html">Eldre dyr</a>
++      <a href="butikk.html">Nettbutikk</a>
++    </nav>
++  </header>
++
++  <main class="container">
++    <section>
++      <div class="hero">
++        <h2>Naturlig støtte for dyrehelse</h2>
++        <p>En kunnskapsplattform for dyreeiere som ønsker trygg, forskningsbasert informasjon om naturlige tilskudd og helhetlig dyrehelse.</p>
++        <a href="immunstotte.html" class="button">Utforsk kunnskapsbiblioteket</a>
++      </div>
++    </section>
++
++    <section>
++      <div class="email-box">
++        <h2>Få oppdateringer</h2>
++        <p>Motta nye artikler og guider om naturlig dyrehelse.</p>
++        <input id="newsletterEmail" type="email" placeholder="Din e-post">
++        <button id="newsletterButton" class="button" type="button">Meld meg på</button>
++        <p id="newsletterMessage" class="status-text"></p>
++      </div>
++    </section>
++  </main>
++
++  <footer class="footer">
++    <p>© 2026 Dyrebalanse</p>
++    <p>Informasjonen på siden erstatter ikke veterinærbehandling.</p>
++  </footer>
++
++  <script src="script.js"></script>
+ </body>
+ </html>
