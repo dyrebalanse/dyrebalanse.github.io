@@ -1,114 +1,162 @@
-<!DOCTYPE html>
-<html lang="no">
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Handlekurv | Dyrebalanse</title>
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-<header class="topbar">
-
-<div class="logo">
-<h1><a href="index.html">Dyrebalanse</a></h1>
-<p>Naturlig støtte for hundens helse</p>
-</div>
-
-</header>
-
-<nav>
-<a href="index.html">Hjem</a>
-<a href="immunstotte.html">Immunstøtte</a>
-<a href="ledd.html">Ledd</a>
-<a href="tarm.html">Tarmhelse</a>
-<a href="eldre-dyr.html">Eldre dyr</a>
-<a href="butikk.html">Nettbutikk</a>
-</nav>
-
-<section>
-
-<h2>Din handlekurv</h2>
-
-<div id="cartItems"></div>
-
-<h3 id="totalPrice">Totalt: 0 kr</h3>
-
-<br>
-
-<button onclick="checkout()" class="button">Gå til betaling</button>
-
-</section>
-
-<footer class="footer">
-<p>© 2026 Dyrebalanse</p>
-</footer>
-
-
-<script>
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-function loadCart(){
-
-let cartDiv = document.getElementById("cartItems");
-let total = 0;
-
-cartDiv.innerHTML = "";
-
-cart.forEach((item,index)=>{
-
-let div = document.createElement("div");
-div.className = "cart-item";
-
-div.innerHTML =
-"<span>" + item.name + "</span>" +
-"<span>" + item.price + " kr</span>" +
-"<button onclick='removeItem("+index+")'>Fjern</button>";
-
-cartDiv.appendChild(div);
-
-total += item.price;
-
-});
-
-document.getElementById("totalPrice").innerText =
-"Totalt: " + total + " kr";
-
-}
-
-
-function removeItem(index){
-
-cart.splice(index,1);
-
-localStorage.setItem("cart", JSON.stringify(cart));
-
-loadCart();
-
-}
-
-
-function checkout(){
-
-alert("Bestilling sendt! Betalingsløsning kommer snart.");
-
-localStorage.removeItem("cart");
-
-cart = [];
-
-loadCart();
-
-}
-
-loadCart();
-
-</script>
-
-</body>
-</html>
+diff --git a/handlekurv.html b/handlekurv.html
+index 4f832027dee3eb2fc363f294dd58fbbdfb8220d9..fb5646479d8778a337d578031672c6002e6f6e26 100644
+--- a/handlekurv.html
++++ b/handlekurv.html
+@@ -1,114 +1,50 @@
+ <!DOCTYPE html>
+ <html lang="no">
+-
+ <head>
+-<meta charset="UTF-8">
+-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+-
+-<title>Handlekurv | Dyrebalanse</title>
+-
+-<link rel="stylesheet" href="style.css">
+-
++  <meta charset="UTF-8">
++  <meta name="viewport" content="width=device-width, initial-scale=1.0">
++  <title>Handlekurv | Dyrebalanse</title>
++  <link rel="stylesheet" href="style.css">
+ </head>
+-
+ <body>
+-
+-<header class="topbar">
+-
+-<div class="logo">
+-<h1><a href="index.html">Dyrebalanse</a></h1>
+-<p>Naturlig støtte for hundens helse</p>
+-</div>
+-
+-</header>
+-
+-<nav>
+-<a href="index.html">Hjem</a>
+-<a href="immunstotte.html">Immunstøtte</a>
+-<a href="ledd.html">Ledd</a>
+-<a href="tarm.html">Tarmhelse</a>
+-<a href="eldre-dyr.html">Eldre dyr</a>
+-<a href="butikk.html">Nettbutikk</a>
+-</nav>
+-
+-<section>
+-
+-<h2>Din handlekurv</h2>
+-
+-<div id="cartItems"></div>
+-
+-<h3 id="totalPrice">Totalt: 0 kr</h3>
+-
+-<br>
+-
+-<button onclick="checkout()" class="button">Gå til betaling</button>
+-
+-</section>
+-
+-<footer class="footer">
+-<p>© 2026 Dyrebalanse</p>
+-</footer>
+-
+-
+-<script>
+-
+-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+-
+-function loadCart(){
+-
+-let cartDiv = document.getElementById("cartItems");
+-let total = 0;
+-
+-cartDiv.innerHTML = "";
+-
+-cart.forEach((item,index)=>{
+-
+-let div = document.createElement("div");
+-div.className = "cart-item";
+-
+-div.innerHTML =
+-"<span>" + item.name + "</span>" +
+-"<span>" + item.price + " kr</span>" +
+-"<button onclick='removeItem("+index+")'>Fjern</button>";
+-
+-cartDiv.appendChild(div);
+-
+-total += item.price;
+-
+-});
+-
+-document.getElementById("totalPrice").innerText =
+-"Totalt: " + total + " kr";
+-
+-}
+-
+-
+-function removeItem(index){
+-
+-cart.splice(index,1);
+-
+-localStorage.setItem("cart", JSON.stringify(cart));
+-
+-loadCart();
+-
+-}
+-
+-
+-function checkout(){
+-
+-alert("Bestilling sendt! Betalingsløsning kommer snart.");
+-
+-localStorage.removeItem("cart");
+-
+-cart = [];
+-
+-loadCart();
+-
+-}
+-
+-loadCart();
+-
+-</script>
+-
++  <header class="topbar">
++    <div class="logo">
++      <h1><a href="index.html">Dyrebalanse</a></h1>
++      <p>Naturlig støtte for hundens helse</p>
++    </div>
++
++    <nav class="menu">
++      <a href="index.html">Hjem</a>
++      <a href="immunstotte.html">Immunstøtte</a>
++      <a href="ledd.html">Ledd</a>
++      <a href="tarm.html">Tarmhelse</a>
++      <a href="eldre-dyr.html">Eldre dyr</a>
++      <a href="butikk.html">Nettbutikk</a>
++    </nav>
++  </header>
++
++  <section>
++    <div class="checkout-box">
++      <h2>Din handlekurv</h2>
++      <div id="cartItems" class="cart-items"></div>
++      <h3 id="totalPrice">Totalt: 0 kr</h3>
++
++      <label for="paymentMethod">Betalingsmetode</label>
++      <select id="paymentMethod">
++        <option value="stripe">Kortbetaling (Stripe Checkout)</option>
++        <option value="vipps">Vipps (betalingslenke)</option>
++      </select>
++
++      <button type="button" id="checkoutButton" class="button">Gå til betaling</button>
++      <button type="button" id="clearCartButton">Tøm handlekurv</button>
++      <p id="checkoutMessage"></p>
++    </div>
++  </section>
++
++  <footer class="footer">
++    <p>© 2026 Dyrebalanse</p>
++  </footer>
++
++  <script src="script.js"></script>
+ </body>
+ </html>
