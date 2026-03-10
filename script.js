@@ -1,8 +1,8 @@
 diff --git a/script.js b/script.js
-index 065076b617ffa32cffcdfc502be76e7e082ef053..ff6920de88f7f24f9fe7dae09c7162dddacd6de8 100644
+index 065076b617ffa32cffcdfc502be76e7e082ef053..384b0a58250abbb064ea7873afe08c72d74b1f9e 100644
 --- a/script.js
 +++ b/script.js
-@@ -1,21 +1,147 @@
+@@ -1,21 +1,171 @@
 -let cart = JSON.parse(localStorage.getItem("cart")) || [];
 +const CART_KEY = "dyrebalanseCart";
  
@@ -20,30 +20,28 @@ index 065076b617ffa32cffcdfc502be76e7e082ef053..ff6920de88f7f24f9fe7dae09c7162dd
 +    return [];
 +  }
 +}
- 
--cart.push({name, price});
++
 +function saveCart(cart) {
 +  localStorage.setItem(CART_KEY, JSON.stringify(cart));
 +}
- 
--localStorage.setItem("cart", JSON.stringify(cart));
++
 +function getTotal(cart) {
 +  return cart.reduce((sum, item) => sum + item.price, 0);
 +}
- 
--alert(name + " lagt i handlekurv");
++
 +function formatCurrency(amount) {
 +  return `${amount} kr`;
 +}
  
--updateCart();
+-cart.push({name, price});
 +function addToCart(name, price) {
 +  const cart = getCart();
 +  cart.push({ name, price });
 +  saveCart(cart);
 +  updateShopSummary();
 +}
-+
+ 
+-localStorage.setItem("cart", JSON.stringify(cart));
 +function removeFromCart(index) {
 +  const cart = getCart();
 +  cart.splice(index, 1);
@@ -52,24 +50,26 @@ index 065076b617ffa32cffcdfc502be76e7e082ef053..ff6920de88f7f24f9fe7dae09c7162dd
 +  updateShopSummary();
 +}
  
+-alert(name + " lagt i handlekurv");
 +function clearCart() {
 +  localStorage.removeItem(CART_KEY);
 +  renderCartPage();
 +  updateShopSummary();
- }
++}
  
+-updateCart();
 +function updateShopSummary() {
 +  const countElement = document.getElementById("cartCount");
 +  const amountElement = document.getElementById("cartAmount");
 +  if (!countElement || !amountElement) {
 +    return;
 +  }
-+
+ 
 +  const cart = getCart();
 +  countElement.textContent = String(cart.length);
 +  amountElement.textContent = formatCurrency(getTotal(cart));
-+}
-+
+ }
+ 
 +function renderCartPage() {
 +  const cartItems = document.getElementById("cartItems");
 +  const totalPrice = document.getElementById("totalPrice");
@@ -94,31 +94,32 @@ index 065076b617ffa32cffcdfc502be76e7e082ef053..ff6920de88f7f24f9fe7dae09c7162dd
 +    `;
 +    cartItems.appendChild(row);
 +  });
- 
--function updateCart(){
++
 +  totalPrice.textContent = `Totalt: ${formatCurrency(getTotal(cart))}`;
- 
--let total = 0;
++
 +  cartItems.querySelectorAll("[data-remove-index]").forEach((button) => {
 +    button.addEventListener("click", () => {
 +      removeFromCart(Number(button.dataset.removeIndex));
 +    });
 +  });
 +}
-+
+ 
+-function updateCart(){
 +function setupShopPage() {
 +  document.querySelectorAll("[data-product]").forEach((button) => {
 +    button.addEventListener("click", () => {
 +      const name = button.dataset.product;
 +      const price = Number(button.dataset.price || 0);
 +      addToCart(name, price);
++      const originalLabel = button.textContent;
 +      button.textContent = "Lagt til";
 +      setTimeout(() => {
-+        button.textContent = "Legg i handlekurv";
++        button.textContent = originalLabel;
 +      }, 1000);
 +    });
 +  });
-+
+ 
+-let total = 0;
 +  updateShopSummary();
 +}
 +
@@ -152,10 +153,33 @@ index 065076b617ffa32cffcdfc502be76e7e082ef053..ff6920de88f7f24f9fe7dae09c7162dd
 +
 +  clearButton?.addEventListener("click", clearCart);
 +}
++
++
++function setupNewsletterForm() {
++  const emailInput = document.getElementById("newsletterEmail");
++  const button = document.getElementById("newsletterButton");
++  const message = document.getElementById("newsletterMessage");
++
++  if (!emailInput || !button || !message) {
++    return;
++  }
++
++  button.addEventListener("click", () => {
++    const value = emailInput.value.trim();
++    if (!value || !value.includes("@")) {
++      message.textContent = "Skriv inn en gyldig e-postadresse.";
++      return;
++    }
++
++    message.textContent = "Takk! Du er registrert for oppdateringer.";
++    emailInput.value = "";
++  });
++}
  
 -cart.forEach(item => total += item.price);
 +document.addEventListener("DOMContentLoaded", () => {
 +  setupShopPage();
 +  renderCartPage();
 +  setupCheckoutButton();
++  setupNewsletterForm();
 +});
