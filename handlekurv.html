@@ -1,8 +1,8 @@
 diff --git a/handlekurv.html b/handlekurv.html
-index 4f832027dee3eb2fc363f294dd58fbbdfb8220d9..fb5646479d8778a337d578031672c6002e6f6e26 100644
+index 4f832027dee3eb2fc363f294dd58fbbdfb8220d9..ec3210d75790ee834aed61fe4eb4bdca686d38ae 100644
 --- a/handlekurv.html
 +++ b/handlekurv.html
-@@ -1,114 +1,50 @@
+@@ -1,114 +1,53 @@
  <!DOCTYPE html>
  <html lang="no">
 -
@@ -131,30 +131,33 @@ index 4f832027dee3eb2fc363f294dd58fbbdfb8220d9..fb5646479d8778a337d578031672c600
 +      <a href="ledd.html">Ledd</a>
 +      <a href="tarm.html">Tarmhelse</a>
 +      <a href="eldre-dyr.html">Eldre dyr</a>
-+      <a href="butikk.html">Nettbutikk</a>
++      <a href="butikk.html" aria-current="page">Nettbutikk</a>
 +    </nav>
 +  </header>
 +
-+  <section>
-+    <div class="checkout-box">
-+      <h2>Din handlekurv</h2>
-+      <div id="cartItems" class="cart-items"></div>
-+      <h3 id="totalPrice">Totalt: 0 kr</h3>
++  <main class="container">
++    <section>
++      <div class="checkout-box">
++        <h2>Din handlekurv</h2>
++        <div id="cartItems" class="cart-items"></div>
++        <h3 id="totalPrice">Totalt: 0 kr</h3>
 +
-+      <label for="paymentMethod">Betalingsmetode</label>
-+      <select id="paymentMethod">
-+        <option value="stripe">Kortbetaling (Stripe Checkout)</option>
-+        <option value="vipps">Vipps (betalingslenke)</option>
-+      </select>
++        <label for="paymentMethod">Betalingsmetode</label>
++        <select id="paymentMethod">
++          <option value="stripe">Kortbetaling (Stripe Checkout)</option>
++          <option value="vipps">Vipps (betalingslenke)</option>
++        </select>
 +
-+      <button type="button" id="checkoutButton" class="button">Gå til betaling</button>
-+      <button type="button" id="clearCartButton">Tøm handlekurv</button>
-+      <p id="checkoutMessage"></p>
-+    </div>
-+  </section>
++        <button type="button" id="checkoutButton" class="button">Gå til betaling</button>
++        <button type="button" id="clearCartButton">Tøm handlekurv</button>
++        <p id="checkoutMessage" class="status-text"></p>
++      </div>
++    </section>
++  </main>
 +
 +  <footer class="footer">
 +    <p>© 2026 Dyrebalanse</p>
++    <p>Informasjonen på siden erstatter ikke veterinærbehandling.</p>
 +  </footer>
 +
 +  <script src="script.js"></script>
